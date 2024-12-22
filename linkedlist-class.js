@@ -17,4 +17,9 @@ export default class LinkedList {
     const prev = this.#head;
     this.#head = new Node(value, prev);
   }
+  tail() {
+    let node = this.#head;
+    while (node && node.next) node = node.next;
+    return node
+  }
 }
