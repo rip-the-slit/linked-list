@@ -33,4 +33,9 @@ export default class LinkedList {
     while (node && ++currentIndex !== index) node = node.next;
     return node;
   }
+  insertAt(value, index) {
+    const prevNode = this.at(index-1)
+    const prevNext = prevNode.next
+    if (prevNode) prevNode.next = new Node(value, prevNext)
+  }
 }
