@@ -34,17 +34,25 @@ export default class LinkedList {
     return node;
   }
   pop() {
-    const prevNext = this.#head.next
-    this.#head = prevNext
+    const prevNext = this.#head.next;
+    this.#head = prevNext;
+  }
+  contains(value) {
+    let node = this.#head;
+    while (node) {
+      if (node.value == value) return true;
+      node = node.next;
+    }
+    return false
   }
   insertAt(value, index) {
-    if (index == 0) this.prepend(value)
+    if (index == 0) this.prepend(value);
     const prevNode = this.at(index - 1);
     const prevNext = prevNode.next;
     if (prevNode) prevNode.next = new Node(value, prevNext);
   }
   removeAt(index) {
-    if (index == 0) this.pop()
+    if (index == 0) this.pop();
     const prevNode = this.at(index - 1);
     const nextNext = prevNode.next.next;
     if (prevNode) prevNode.next = nextNext ? nextNext : null;
