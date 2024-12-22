@@ -45,6 +45,16 @@ export default class LinkedList {
     }
     return false
   }
+  find(value) {
+    let index = -1;
+    let node = this.#head;
+    while (node) {
+      index++
+      if (node.value == value) return index
+      node = node.next
+    }
+    return -1;
+  }
   insertAt(value, index) {
     if (index == 0) this.prepend(value);
     const prevNode = this.at(index - 1);
