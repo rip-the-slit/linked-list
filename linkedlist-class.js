@@ -34,8 +34,14 @@ export default class LinkedList {
     return node;
   }
   insertAt(value, index) {
-    const prevNode = this.at(index-1)
-    const prevNext = prevNode.next
-    if (prevNode) prevNode.next = new Node(value, prevNext)
+    if (index == 0) this.prepend(value)
+    const prevNode = this.at(index - 1);
+    const prevNext = prevNode.next;
+    if (prevNode) prevNode.next = new Node(value, prevNext);
+  }
+  removeAt(index) {
+    const prevNode = this.at(index - 1);
+    const nextNext = prevNode.next.next;
+    if (prevNode) prevNode.next = nextNext ? nextNext : null;
   }
 }
