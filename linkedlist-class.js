@@ -33,6 +33,10 @@ export default class LinkedList {
     while (node && ++currentIndex !== index) node = node.next;
     return node;
   }
+  pop() {
+    const prevNext = this.#head.next
+    this.#head = prevNext
+  }
   insertAt(value, index) {
     if (index == 0) this.prepend(value)
     const prevNode = this.at(index - 1);
