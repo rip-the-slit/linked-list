@@ -43,17 +43,27 @@ export default class LinkedList {
       if (node.value == value) return true;
       node = node.next;
     }
-    return false
+    return false;
   }
   find(value) {
     let index = -1;
     let node = this.#head;
     while (node) {
-      index++
-      if (node.value == value) return index
-      node = node.next
+      index++;
+      if (node.value == value) return index;
+      node = node.next;
     }
     return -1;
+  }
+  toString() {
+    let string = "";
+    let node = this.#head;
+    while (node) {
+      string += `( ${node.value} ) => `;
+      node = node.next;
+    }
+    string += "null";
+    return string;
   }
   insertAt(value, index) {
     if (index == 0) this.prepend(value);

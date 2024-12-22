@@ -1,7 +1,10 @@
 import LinkedList from "./linkedlist-class.js";
 
 const list = new LinkedList()
-list.append("sumn")
-list.prepend(234)
-list.insertAt("d", 1)
-console.log(list.find("1"))
+list.append("dog");
+list.append("cat");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
+console.log(list.toString())
