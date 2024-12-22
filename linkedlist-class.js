@@ -5,21 +5,17 @@ export default class LinkedList {
   get head() {
     return this.#head;
   }
+  tail() {
+    let node = this.#head;
+    while (node && node.next) node = node.next;
+    return node;
+  }
   append(value) {
     if (!this.#head) this.#head = new Node(value);
-    else {
-      let node = this.#head;
-      while (node.next) node = node.next;
-      node.next = new Node(value);
-    }
+    else this.tail().next = new Node(value);
   }
   prepend(value) {
     const prev = this.#head;
     this.#head = new Node(value, prev);
-  }
-  tail() {
-    let node = this.#head;
-    while (node && node.next) node = node.next;
-    return node
   }
 }
