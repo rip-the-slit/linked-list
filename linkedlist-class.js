@@ -44,6 +44,7 @@ export default class LinkedList {
     if (prevNode) prevNode.next = new Node(value, prevNext);
   }
   removeAt(index) {
+    if (index == 0) this.pop()
     const prevNode = this.at(index - 1);
     const nextNext = prevNode.next.next;
     if (prevNode) prevNode.next = nextNext ? nextNext : null;
