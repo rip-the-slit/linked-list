@@ -18,4 +18,13 @@ export default class LinkedList {
     const prev = this.#head;
     this.#head = new Node(value, prev);
   }
+  size() {
+    let size = 0;
+    let node = this.#head;
+    while (node) {
+      size++;
+      node = node.next;
+    }
+    return size;
+  }
 }
