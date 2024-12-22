@@ -27,4 +27,10 @@ export default class LinkedList {
     }
     return size;
   }
+  at(index) {
+    let currentIndex = -1;
+    let node = this.#head;
+    while (node && ++currentIndex !== index) node = node.next;
+    return node;
+  }
 }
